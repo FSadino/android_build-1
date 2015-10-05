@@ -21,18 +21,13 @@
 
 PRODUCT_PACKAGES := \
     libfwdlockengine \
-    libWnnEngDic \
-    libwnndict \
     WAPPushManager
 
 ifneq ($(TARGET_EXCLUDE_LIVEWALLPAPERS), true)
 PRODUCT_PACKAGES += \
     Galaxy4 \
-    HoloSpiralWallpaper \
     LiveWallpapers \
     LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
     PhaseBeam \
     PhotoTable
 else
