@@ -1205,7 +1205,7 @@ endef
 ###########################################################
 
 define transform-cpp-to-o
-@echo "target $(PRIVATE_ARM_MODE) C++: $(PRIVATE_MODULE) <= $<"
+@echo "target $(PRIVATE_ARM_MODE) C++: $(PRIVATE_CXX) | $(PRIVATE_MODULE) <= $<"
 @mkdir -p $(dir $@)
 $(hide) $(RELATIVE_PWD) $(PRIVATE_CXX) \
 	$(addprefix -I , $(PRIVATE_C_INCLUDES)) \
@@ -1258,7 +1258,7 @@ $(hide) $(RELATIVE_PWD) $(PRIVATE_CC) \
 endef
 
 define transform-c-to-o-no-deps
-@echo "target $(PRIVATE_ARM_MODE) C: $(PRIVATE_MODULE) <= $<"
+@echo "target $(PRIVATE_ARM_MODE) C: $(PRIVATE_CC) | $(PRIVATE_MODULE) <= $<"
 $(call transform-c-or-s-to-o-no-deps, \
     $(PRIVATE_CFLAGS) \
     $(PRIVATE_CONLYFLAGS) \
@@ -1312,7 +1312,7 @@ endef
 ###########################################################
 
 define transform-host-cpp-to-o
-@echo "$($(PRIVATE_PREFIX)DISPLAY) C++: $(PRIVATE_MODULE) <= $<"
+@echo "$($(PRIVATE_PREFIX)DISPLAY) C++: $(PRIVATE_CXX) | $(PRIVATE_MODULE) <= $<"
 @mkdir -p $(dir $@)
 $(hide) $(RELATIVE_PWD) $(PRIVATE_CXX) \
 	$(addprefix -I , $(PRIVATE_C_INCLUDES)) \
@@ -1363,7 +1363,7 @@ $(hide) $(RELATIVE_PWD) $(PRIVATE_CC) \
 endef
 
 define transform-host-c-to-o-no-deps
-@echo "$($(PRIVATE_PREFIX)DISPLAY) C: $(PRIVATE_MODULE) <= $<"
+@echo "$($(PRIVATE_PREFIX)DISPLAY) C: $(PRIVATE_CC) | $(PRIVATE_MODULE) <= $<"
 $(call transform-host-c-or-s-to-o-no-deps, $(PRIVATE_CFLAGS) $(PRIVATE_CONLYFLAGS) $(PRIVATE_DEBUG_CFLAGS))
 endef
 
