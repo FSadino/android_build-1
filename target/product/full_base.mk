@@ -21,20 +21,11 @@
 
 PRODUCT_PACKAGES := \
     libfwdlockengine \
-    libWnnEngDic \
-    libwnndict \
     WAPPushManager
 
 ifneq ($(TARGET_EXCLUDE_LIVEWALLPAPERS), true)
 PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    PhotoTable
+    LiveWallpapersPicker
 else
 PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
@@ -53,9 +44,6 @@ PRODUCT_LOCALES := en_US
 
 # Get some sounds
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
-
-# Get the TTS language packs
-$(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
 
 # Get a list of languages.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
